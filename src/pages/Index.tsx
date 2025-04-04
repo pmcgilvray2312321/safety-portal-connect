@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, FileCheck, Users, Award, Calendar, ArrowRight } from 'lucide-react';
+import { Shield, FileCheck, Users, Award, Calendar, ArrowRight, Lock } from 'lucide-react';
 
 const Index = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -42,44 +42,54 @@ const Index = () => {
         <div className="text-sm">
           Safety Professionals Portal
         </div>
-        <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-          <DialogTrigger asChild>
-            <Button variant="ghost" className="text-white hover:text-safety-light">
-              Client Login
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Login to Safety Portal</DialogTitle>
-            </DialogHeader>
-            <form onSubmit={handleLogin} className="space-y-4 pt-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com" 
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input 
-                  id="password" 
-                  type="password" 
-                  value={password} 
-                  onChange={(e) => setPassword(e.target.value)} 
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full bg-safety hover:bg-safety-dark">
-                Login
+        <div className="flex space-x-4">
+          <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+            <DialogTrigger asChild>
+              <Button variant="ghost" className="text-white hover:text-safety-light">
+                Client Login
               </Button>
-            </form>
-          </DialogContent>
-        </Dialog>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Login to Safety Portal</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleLogin} className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com" 
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full bg-safety hover:bg-safety-dark">
+                  Login
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+          <Button 
+            variant="ghost" 
+            className="text-white hover:text-safety-light flex items-center"
+            onClick={() => navigate('/admin/login')}
+          >
+            <Lock className="mr-2 h-4 w-4" />
+            Admin Portal
+          </Button>
+        </div>
       </div>
 
       {/* Hero Section */}
@@ -102,8 +112,12 @@ const Index = () => {
                 </Button>
               </DialogTrigger>
             </Dialog>
-            <Button variant="outline" className="text-white border-white hover:bg-white/10 px-8 py-6 text-lg">
-              Learn More
+            <Button 
+              variant="outline" 
+              className="text-white border-white hover:bg-white/10 px-8 py-6 text-lg"
+              onClick={() => navigate('/admin/login')}
+            >
+              Admin Access
             </Button>
           </div>
         </div>
