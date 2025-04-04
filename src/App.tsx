@@ -11,6 +11,7 @@ import Documents from "./pages/Documents";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDocuments from "./pages/AdminDocuments";
 import NotFound from "./pages/NotFound";
+import SafetyProfessionals from "./pages/SafetyProfessionals";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,9 @@ const App = () => (
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/documents" element={<AdminDocuments />} />
+          
+          {/* Service Pages */}
+          <Route path="/services/united-safety-professionals" element={<SafetyProfessionals />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

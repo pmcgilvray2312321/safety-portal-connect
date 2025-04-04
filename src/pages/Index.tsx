@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, FileCheck, Users, Award, Calendar, ArrowRight, Lock } from 'lucide-react';
+import { Shield, FileCheck, Users, Award, Calendar, ArrowRight, Lock, ExternalLink } from 'lucide-react';
 
 const Index = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -89,6 +89,14 @@ const Index = () => {
             <Lock className="mr-2 h-4 w-4" />
             Admin Portal
           </Button>
+          <Button 
+            variant="ghost" 
+            className="text-white hover:text-safety-light flex items-center"
+            onClick={() => navigate('/services/united-safety-professionals')}
+          >
+            <ExternalLink className="mr-2 h-4 w-4" />
+            Official Site
+          </Button>
         </div>
       </div>
 
@@ -118,6 +126,14 @@ const Index = () => {
               onClick={() => navigate('/admin/login')}
             >
               Admin Access
+            </Button>
+            <Button
+              variant="ghost"
+              className="text-white border-white hover:bg-white/10 px-8 py-6 text-lg"
+              onClick={() => navigate('/services/united-safety-professionals')}
+            >
+              <ExternalLink className="mr-2 h-5 w-5" />
+              Official Website
             </Button>
           </div>
         </div>
